@@ -4,7 +4,6 @@ title: "Trading Skills Navigator"
 grand_parent: English
 parent: Skill Guides
 nav_order: 11
-lang_peer: /ja/skills/trading-skills-navigator/
 permalink: /en/skills/trading-skills-navigator/
 ---
 

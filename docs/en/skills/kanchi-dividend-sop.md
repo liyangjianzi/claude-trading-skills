@@ -4,7 +4,6 @@ title: "Kanchi Dividend SOP"
 grand_parent: English
 parent: Skill Guides
 nav_order: 27
-lang_peer: /ja/skills/kanchi-dividend-sop/
 permalink: /en/skills/kanchi-dividend-sop/
 ---
 

@@ -4,7 +4,6 @@ title: FinViz Screener
 grand_parent: English
 parent: Skill Guides
 nav_order: 1
-lang_peer: /ja/skills/finviz-screener/
 permalink: /en/skills/finviz-screener/
 ---
 

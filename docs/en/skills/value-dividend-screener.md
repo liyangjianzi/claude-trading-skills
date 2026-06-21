@@ -4,7 +4,6 @@ title: "Value Dividend Screener"
 grand_parent: English
 parent: Skill Guides
 nav_order: 44
-lang_peer: /ja/skills/value-dividend-screener/
 permalink: /en/skills/value-dividend-screener/
 ---
 

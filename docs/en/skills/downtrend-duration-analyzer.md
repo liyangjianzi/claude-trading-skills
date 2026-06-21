@@ -4,7 +4,6 @@ title: "Downtrend Duration Analyzer"
 grand_parent: English
 parent: Skill Guides
 nav_order: 11
-lang_peer: /ja/skills/downtrend-duration-analyzer/
 permalink: /en/skills/downtrend-duration-analyzer/
 ---
 

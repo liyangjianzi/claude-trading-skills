@@ -4,7 +4,6 @@ title: "Skill Integration Tester"
 grand_parent: English
 parent: Skill Guides
 nav_order: 11
-lang_peer: /ja/skills/skill-integration-tester/
 permalink: /en/skills/skill-integration-tester/
 ---
 

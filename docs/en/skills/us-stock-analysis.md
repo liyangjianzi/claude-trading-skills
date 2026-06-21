@@ -4,7 +4,6 @@ title: US Stock Analysis
 grand_parent: English
 parent: Skill Guides
 nav_order: 8
-lang_peer: /ja/skills/us-stock-analysis/
 permalink: /en/skills/us-stock-analysis/
 ---
 

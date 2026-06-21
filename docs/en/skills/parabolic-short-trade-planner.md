@@ -4,7 +4,6 @@ title: "Parabolic Short Trade Planner"
 grand_parent: English
 parent: Skill Guides
 nav_order: 11
-lang_peer: /ja/skills/parabolic-short-trade-planner/
 permalink: /en/skills/parabolic-short-trade-planner/
 ---
 

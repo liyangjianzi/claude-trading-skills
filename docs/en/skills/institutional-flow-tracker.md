@@ -4,7 +4,6 @@ title: "Institutional Flow Tracker"
 grand_parent: English
 parent: Skill Guides
 nav_order: 25
-lang_peer: /ja/skills/institutional-flow-tracker/
 permalink: /en/skills/institutional-flow-tracker/
 ---
 

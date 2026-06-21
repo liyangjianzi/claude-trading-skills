@@ -4,7 +4,6 @@ title: "Skill Idea Miner"
 grand_parent: English
 parent: Skill Guides
 nav_order: 39
-lang_peer: /ja/skills/skill-idea-miner/
 permalink: /en/skills/skill-idea-miner/
 ---
 

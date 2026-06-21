@@ -4,7 +4,6 @@ title: Position Sizer
 grand_parent: English
 parent: Skill Guides
 nav_order: 6
-lang_peer: /ja/skills/position-sizer/
 permalink: /en/skills/position-sizer/
 ---
 

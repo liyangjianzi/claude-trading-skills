@@ -4,7 +4,6 @@ title: "Kanchi Dividend US Tax Accounting"
 grand_parent: English
 parent: Skill Guides
 nav_order: 28
-lang_peer: /ja/skills/kanchi-dividend-us-tax-accounting/
 permalink: /en/skills/kanchi-dividend-us-tax-accounting/
 ---
 

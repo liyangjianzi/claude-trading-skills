@@ -4,7 +4,6 @@ title: Skill Guides
 parent: English
 nav_order: 3
 has_children: true
-lang_peer: /ja/skills/
 permalink: /en/skills/
 ---
 

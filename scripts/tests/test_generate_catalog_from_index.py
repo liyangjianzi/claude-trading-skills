@@ -17,7 +17,6 @@ from generate_catalog_from_index import (  # noqa: E402
     main,
     render_api_matrix,
     render_catalog_en,
-    render_catalog_ja,
     rewrite_file,
 )
 
@@ -101,9 +100,8 @@ More text below the matrix.
 
 
 def write_all_targets(project_root: Path) -> None:
-    """Create README.md + README.ja.md + CLAUDE.md with their sentinels."""
+    """Create README.md + CLAUDE.md with their sentinels."""
     write_readme(project_root, name="README.md", sentinel="catalog-en")
-    write_readme(project_root, name="README.ja.md", sentinel="catalog-ja")
     write_claude_md(project_root)
 
 
@@ -122,13 +120,6 @@ def test_render_en_groups_by_category() -> None:
     assert "### Core Portfolio" in out
     assert "`a-skill`" in out
     assert "`b-skill`" in out
-
-
-def test_render_ja_uses_japanese_headers() -> None:
-    skills = [make_skill("a-skill", category="market-regime")]
-    out = render_catalog_ja(skills)
-    assert "### 相場環境" in out
-    assert "サマリ" in out
 
 
 def test_render_skips_empty_categories() -> None:
@@ -390,7 +381,7 @@ def test_sentinel_regex_requires_matching_names() -> None:
     text = (
         '<!-- skills-index:start name="catalog-en" -->\n'
         "content\n"
-        '<!-- skills-index:end name="catalog-ja" -->'
+        '<!-- skills-index:end name="api-matrix" -->'
     )
     m = SENTINEL_RE.search(text)
     assert m is None
@@ -432,9 +423,8 @@ def test_main_check_fails_on_drift(tmp_path: Path) -> None:
 def test_main_fails_on_missing_sentinel(tmp_path: Path) -> None:
     """README.md present but without the required sentinel name → error."""
     write_minimal_index(tmp_path, [make_skill("a-skill", category="market-regime")])
-    # README.md has WRONG sentinel name (catalog-ja in the english file).
-    write_readme(tmp_path, name="README.md", sentinel="catalog-ja")
-    write_readme(tmp_path, name="README.ja.md", sentinel="catalog-ja")
+    # README.md has a WRONG sentinel name (no registered renderer).
+    write_readme(tmp_path, name="README.md", sentinel="bogus-name")
     write_claude_md(tmp_path)  # CLAUDE.md is required; create it correctly
 
     rc = main(["--project-root", str(tmp_path)])

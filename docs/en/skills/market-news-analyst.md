@@ -4,7 +4,6 @@ title: Market News Analyst
 grand_parent: English
 parent: Skill Guides
 nav_order: 9
-lang_peer: /ja/skills/market-news-analyst/
 permalink: /en/skills/market-news-analyst/
 ---
 

@@ -4,7 +4,6 @@ title: "Edge Strategy Designer"
 grand_parent: English
 parent: Skill Guides
 nav_order: 22
-lang_peer: /ja/skills/edge-strategy-designer/
 permalink: /en/skills/edge-strategy-designer/
 ---
 

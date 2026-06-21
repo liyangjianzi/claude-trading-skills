@@ -11,7 +11,6 @@ Anything outside the markers is untouched. Each marker pair maps to one
 region renderer keyed by `name`. Currently:
 
     catalog-en  → README.md  Detailed Skill Catalog (English)
-    catalog-ja  → README.ja.md Detailed Skill Catalog (Japanese)
 
 Idempotent — same input always produces byte-identical output. Use
 `--check` to detect drift in CI.
@@ -50,17 +49,6 @@ CATEGORY_LABELS_EN = {
     "strategy-research": "Strategy Research",
     "advanced-satellite": "Advanced Satellite",
     "meta": "Meta / Development Tooling",
-}
-
-CATEGORY_LABELS_JA = {
-    "market-regime": "相場環境（Market Regime）",
-    "core-portfolio": "コアポートフォリオ（Core Portfolio）",
-    "swing-opportunity": "スイング候補（Swing Opportunity）",
-    "trade-planning": "トレード計画（Trade Planning）",
-    "trade-memory": "トレード記録（Trade Memory）",
-    "strategy-research": "戦略リサーチ（Strategy Research）",
-    "advanced-satellite": "アドバンスト・サテライト（Advanced Satellite）",
-    "meta": "メタ / 開発ツール（Meta）",
 }
 
 INTEGRATION_BADGES = {
@@ -158,41 +146,6 @@ def render_catalog_en(skills: list[dict]) -> str:
     return buf.getvalue().rstrip("\n")
 
 
-def render_catalog_ja(skills: list[dict]) -> str:
-    buf = io.StringIO()
-    buf.write(
-        "<!-- 本セクションは skills-index.yaml から "
-        "scripts/generate_catalog_from_index.py で自動生成されます。"
-        "手動編集せず、index を更新して generator を再実行してください。 -->\n\n"
-    )
-    buckets = group_by_category(skills)
-    for cat in [
-        "market-regime",
-        "core-portfolio",
-        "swing-opportunity",
-        "trade-planning",
-        "trade-memory",
-        "strategy-research",
-        "advanced-satellite",
-        "meta",
-    ]:
-        items = buckets.get(cat, [])
-        if not items:
-            continue
-        buf.write(f"### {CATEGORY_LABELS_JA[cat]}\n\n")
-        buf.write("| スキル | サマリ | 依存 | ステータス |\n")
-        buf.write("|---|---|---|---|\n")
-        for s in items:
-            sid = s.get("id", "")
-            display_name = _escape_table_cell(s.get("display_name", sid))
-            summary = _escape_table_cell(s.get("summary") or "")
-            status = _escape_table_cell(s.get("status", ""))
-            integs = _primary_integrations(s)
-            buf.write(f"| **{display_name}** (`{sid}`) | {summary} | {integs} | {status} |\n")
-        buf.write("\n")
-    return buf.getvalue().rstrip("\n")
-
-
 def _find_integration(skill: dict, integration_id: str) -> dict | None:
     """Return the integrations[] entry with id == integration_id, or None."""
     for i in skill.get("integrations") or []:
@@ -275,7 +228,6 @@ def render_api_matrix(skills: list[dict]) -> str:
 
 RENDERERS = {
     "catalog-en": render_catalog_en,
-    "catalog-ja": render_catalog_ja,
     "api-matrix": render_api_matrix,
 }
 
@@ -317,7 +269,6 @@ def rewrite_file(path: Path, skills: list[dict]) -> tuple[str, str]:
 
 TARGETS = [
     ("README.md", {"catalog-en"}),
-    ("README.ja.md", {"catalog-ja"}),
     ("CLAUDE.md", {"api-matrix"}),
 ]
 

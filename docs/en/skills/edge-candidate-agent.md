@@ -4,7 +4,6 @@ title: "Edge Candidate Agent"
 grand_parent: English
 parent: Skill Guides
 nav_order: 18
-lang_peer: /ja/skills/edge-candidate-agent/
 permalink: /en/skills/edge-candidate-agent/
 ---
 

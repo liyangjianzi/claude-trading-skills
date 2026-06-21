@@ -52,10 +52,10 @@ without writing.
 
 | Generator | Regenerate | Inputs → Outputs | pre-commit hook / CI step |
 |---|---|---|---|
-| `scripts/generate_catalog_from_index.py` | `python3 scripts/generate_catalog_from_index.py` | `skills-index.yaml` → catalog blocks in `README.md`, `README.ja.md`, `CLAUDE.md` (between `<!-- skills-index:* -->` sentinels) | `catalog-drift` / "README catalog drift check" |
-| `scripts/generate_skill_docs.py` | `python3 scripts/generate_skill_docs.py` (missing only) · `--skill <name>` · `--overwrite` (generator-owned only) · `--force` (override protection — never in CI) | `skills/*/SKILL.md` + `references/` + `scripts/*.py` + `CLAUDE.md` + `skill-packages/*.skill` → `docs/{en,ja}/skills/*.md` (+ index) | `skill-docs-drift` / "Skill docs drift check" |
-| `scripts/generate_skillset_docs.py` | `python3 scripts/generate_skillset_docs.py` (`--lang en\|ja\|all`, default `all`) | `skillsets/*.yaml` → `docs/{en,ja}/skillsets.md` | `skillset-docs-drift` / "Skillset docs drift check" |
-| `scripts/generate_workflow_docs.py` | `python3 scripts/generate_workflow_docs.py` (`--lang en\|ja\|all`, default `all`) | `workflows/*.yaml` → `docs/{en,ja}/workflows.md` | `workflow-docs-drift` / "Workflow docs drift check" |
+| `scripts/generate_catalog_from_index.py` | `python3 scripts/generate_catalog_from_index.py` | `skills-index.yaml` → catalog blocks in `README.md`, `CLAUDE.md` (between `<!-- skills-index:* -->` sentinels) | `catalog-drift` / "README catalog drift check" |
+| `scripts/generate_skill_docs.py` | `python3 scripts/generate_skill_docs.py` (missing only) · `--skill <name>` · `--overwrite` (generator-owned only) · `--force` (override protection — never in CI) | `skills/*/SKILL.md` + `references/` + `scripts/*.py` + `CLAUDE.md` + `skill-packages/*.skill` → `docs/en/skills/*.md` (+ index) | `skill-docs-drift` / "Skill docs drift check" |
+| `scripts/generate_skillset_docs.py` | `python3 scripts/generate_skillset_docs.py` (`--lang en\|all`, default `all`) | `skillsets/*.yaml` → `docs/en/skillsets.md` | `skillset-docs-drift` / "Skillset docs drift check" |
+| `scripts/generate_workflow_docs.py` | `python3 scripts/generate_workflow_docs.py` (`--lang en\|all`, default `all`) | `workflows/*.yaml` → `docs/en/workflows.md` | `workflow-docs-drift` / "Workflow docs drift check" |
 | `skills/trading-skills-navigator/scripts/build_snapshot.py` | `python3 skills/trading-skills-navigator/scripts/build_snapshot.py` | `skills-index.yaml` + `workflows/*.yaml` + `skillsets/*.yaml` → `skills/trading-skills-navigator/assets/metadata_snapshot.json` | `snapshot-check` / "Navigator snapshot drift check" |
 
 > `generate_skill_docs.py` has **no `--lang`** flag — it emits EN + JA
