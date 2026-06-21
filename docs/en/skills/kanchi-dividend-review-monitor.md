@@ -4,7 +4,6 @@ title: "Kanchi Dividend Review Monitor"
 grand_parent: English
 parent: Skill Guides
 nav_order: 26
-lang_peer: /ja/skills/kanchi-dividend-review-monitor/
 permalink: /en/skills/kanchi-dividend-review-monitor/
 ---
 

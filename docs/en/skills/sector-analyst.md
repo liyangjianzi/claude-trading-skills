@@ -4,7 +4,6 @@ title: "Sector Analyst"
 grand_parent: English
 parent: Skill Guides
 nav_order: 37
-lang_peer: /ja/skills/sector-analyst/
 permalink: /en/skills/sector-analyst/
 ---
 

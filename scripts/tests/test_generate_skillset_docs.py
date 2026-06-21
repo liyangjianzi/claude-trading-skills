@@ -140,20 +140,6 @@ def test_render_skill_lists(skillsets_dir: Path) -> None:
     assert "**Optional skills:** `gamma`" in page
 
 
-def test_render_japanese_uses_japanese_labels(skillsets_dir: Path) -> None:
-    make_skillset(skillsets_dir, id="ja-test")
-    skillsets = load_skillsets(skillsets_dir)
-    page = render_page(skillsets, "ja")
-    # Page title and frontmatter
-    assert "title: スキルセット" in page
-    assert "# スキルセット" in page
-    # Localized section headings
-    assert "使用するとき" in page
-    assert "必須スキル" in page
-    assert "対象ユーザー" in page
-    assert "関連ワークフロー" in page
-
-
 def test_render_collapses_folded_scalar(skillsets_dir: Path) -> None:
     """A multiline (YAML >- folded) when_to_use must render on one line so the
     markdown does not break (the scenario-analyzer table-break hazard)."""

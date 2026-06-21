@@ -3,7 +3,6 @@ layout: default
 title: Skill Catalog
 parent: English
 nav_order: 2
-lang_peer: /ja/skill-catalog/
 permalink: /en/skill-catalog/
 ---
 

@@ -3,7 +3,6 @@ layout: default
 title: Quant Strategy Framework
 parent: English
 nav_order: 10
-lang_peer: /ja/playbooks/quant-strategy-framework/
 permalink: /en/playbooks/quant-strategy-framework/
 ---
 

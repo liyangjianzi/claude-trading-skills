@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate docs/{en,ja}/workflows.md from workflows/*.yaml manifests.
+"""Generate docs/en/workflows.md from workflows/*.yaml manifests.
 
 Idempotent — same input produces byte-identical output. Run via:
 
@@ -69,53 +69,6 @@ LABELS: dict[str, dict[str, str]] = {
         "no": "no",
         "none": "(none)",
     },
-    "ja": {
-        "page_title": "ワークフロー",
-        "page_intro": (
-            "個人トレーダー OS の運用ワークフロー manifest 群です。各ワークフローは"
-            "使用するスキル・判断ゲート・artifact の流れを順番通りに記述しています。"
-            "[`workflows/`](https://github.com/tradermonty/claude-trading-skills/tree/main/workflows) "
-            "以下の manifest が正本で、本ページはそこから自動生成されます。\n\n"
-            "**翻訳方針:** 本ページは見出しラベルのみ日本語化しています。"
-            "manifest 本文（`when_to_run` / `decision_question` / `manual_review` 等）は"
-            "英語正本をそのまま表示します。本文の日本語化は将来の対応予定です（manifest 側に "
-            "`*_ja` フィールドを追加するか、別のローカライズ層を設ける方向で検討中）。"
-        ),
-        "auto_generated_note": (
-            "このページは `scripts/generate_workflow_docs.py` によって自動生成されます。"
-            "手動編集しないでください。"
-        ),
-        "summary_table_title": "ワークフロー一覧",
-        "col_workflow": "ワークフロー",
-        "col_cadence": "頻度",
-        "col_minutes": "目安(分)",
-        "col_api": "API プロファイル",
-        "col_difficulty": "難易度",
-        "when_to_run": "実行タイミング",
-        "when_not_to_run": "実行してはいけないとき",
-        "required_skills": "必須スキル",
-        "optional_skills": "任意スキル",
-        "prerequisite_workflows": "前提ワークフロー（informational）",
-        "prerequisite_artifact": "が期待する artifact",
-        "artifacts": "artifact 一覧",
-        "col_artifact": "Artifact",
-        "col_produced_by": "生成ステップ",
-        "col_required": "必須",
-        "col_downstream": "下流ヒント",
-        "steps": "ステップ",
-        "step_label": "ステップ",
-        "step_optional": "（任意）",
-        "step_decision_gate": "（判断ゲート）",
-        "step_consumes": "consumes",
-        "step_produces": "produces",
-        "step_decision_question": "判断",
-        "manual_review": "手動レビュー",
-        "journal_destination": "Journal 出力先",
-        "final_outputs": "最終出力",
-        "yes": "あり",
-        "no": "なし",
-        "none": "（なし）",
-    },
 }
 
 
@@ -125,17 +78,7 @@ layout: default
 title: Workflows
 parent: English
 nav_order: 4
-lang_peer: /ja/workflows/
 permalink: /en/workflows/
----
-""",
-    "ja": """---
-layout: default
-title: ワークフロー
-parent: 日本語
-nav_order: 4
-lang_peer: /en/workflows/
-permalink: /ja/workflows/
 ---
 """,
 }
@@ -368,7 +311,7 @@ def default_output_path(project_root: Path, lang: str) -> Path:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Generate docs/{en,ja}/workflows.md from workflows/*.yaml manifests."
+        description="Generate docs/en/workflows.md from workflows/*.yaml manifests."
     )
     parser.add_argument(
         "--project-root",
@@ -378,15 +321,15 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument(
         "--lang",
-        choices=["en", "ja", "all"],
+        choices=["en", "all"],
         default="all",
-        help="Which language to generate (default: all)",
+        help="Which language to generate (default: all; only English is supported)",
     )
     parser.add_argument(
         "--output",
         type=Path,
         default=None,
-        help="Override output path (only valid with --lang en or --lang ja)",
+        help="Override output path (only valid with --lang en)",
     )
     parser.add_argument(
         "--check",
@@ -396,7 +339,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.output and args.lang == "all":
-        print("--output requires --lang en or --lang ja, not all", file=sys.stderr)
+        print("--output requires --lang en, not all", file=sys.stderr)
         return 2
 
     workflows_dir = args.project_root / "workflows"
@@ -409,7 +352,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"ERROR: no workflow manifests found under {workflows_dir}", file=sys.stderr)
         return 1
 
-    langs = ["en", "ja"] if args.lang == "all" else [args.lang]
+    langs = ["en"] if args.lang == "all" else [args.lang]
     drift = False
 
     for lang in langs:

@@ -4,7 +4,6 @@ title: "Uptrend Analyzer"
 grand_parent: English
 parent: Skill Guides
 nav_order: 43
-lang_peer: /ja/skills/uptrend-analyzer/
 permalink: /en/skills/uptrend-analyzer/
 ---
 

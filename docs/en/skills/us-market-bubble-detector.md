@@ -4,7 +4,6 @@ title: US Market Bubble Detector
 grand_parent: English
 parent: Skill Guides
 nav_order: 10
-lang_peer: /ja/skills/us-market-bubble-detector/
 permalink: /en/skills/us-market-bubble-detector/
 ---
 

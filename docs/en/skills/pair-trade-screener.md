@@ -4,7 +4,6 @@ title: "Pair Trade Screener"
 grand_parent: English
 parent: Skill Guides
 nav_order: 33
-lang_peer: /ja/skills/pair-trade-screener/
 permalink: /en/skills/pair-trade-screener/
 ---
 

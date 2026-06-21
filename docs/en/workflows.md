@@ -3,7 +3,6 @@ layout: default
 title: Workflows
 parent: English
 nav_order: 4
-lang_peer: /ja/workflows/
 permalink: /en/workflows/
 ---
 

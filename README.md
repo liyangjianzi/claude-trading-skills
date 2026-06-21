@@ -16,8 +16,6 @@ The project follows a **first for self, open for others** stance: it is built fi
 
 **Project vision:** [`PROJECT_VISION.md`](PROJECT_VISION.md)
 
-日本語版READMEは[`README.ja.md`](README.ja.md)をご覧ください。
-
 ## Disclaimer
 
 This repository is for educational, research, and process-improvement purposes only. It is not financial advice, investment advisory service, tax advice, legal advice, a signal service, or a broker execution platform. Trading and investing involve risk, including loss of principal. Past performance, backtests, screens, reports, and AI-generated analysis do not guarantee future results. All trading decisions, position sizing, tax/regulatory compliance, and broker usage are the user's responsibility.
@@ -48,7 +46,7 @@ New users should start with one of these operational workflows. Each link points
 | Record and learn from every closed trade | [`trade-memory-loop`](workflows/trade-memory-loop.yaml) | trader-memory-core, signal-postmortem | No API for manual path |
 | Review monthly performance and adjust rules | [`monthly-performance-review`](workflows/monthly-performance-review.yaml) | trader-memory-core, signal-postmortem, backtest-expert | No API for manual path |
 
-See [`workflows/README.md`](workflows/README.md) for how to read a manifest and run it manually. For a one-page "which workflow fits my situation?" guide, see [Find Your Workflow](docs/en/find-your-workflow.md) ([日本語](docs/ja/find-your-workflow.md)).
+See [`workflows/README.md`](workflows/README.md) for how to read a manifest and run it manually. For a one-page "which workflow fits my situation?" guide, see [Find Your Workflow](docs/en/find-your-workflow.md).
 
 ### No API Key Starter Path
 

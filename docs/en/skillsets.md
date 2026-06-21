@@ -3,7 +3,6 @@ layout: default
 title: Skillsets
 parent: English
 nav_order: 5
-lang_peer: /ja/skillsets/
 permalink: /en/skillsets/
 ---
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate docs/{en,ja}/skillsets.md from skillsets/*.yaml manifests.
+"""Generate docs/en/skillsets.md from skillsets/*.yaml manifests.
 
 Idempotent — same input produces byte-identical output. Run via:
 
@@ -55,38 +55,6 @@ LABELS: dict[str, dict[str, str]] = {
         "related_workflows": "Related workflows",
         "none": "(none)",
     },
-    "ja": {
-        "page_title": "スキルセット",
-        "page_intro": (
-            "個人トレーダー OS の目的別スキルセット群です。スキルセットは"
-            "カテゴリ単位のスキル束（必須 / 推奨 / 任意）で、それを運用化する"
-            "ワークフローに紐づきます（「この目的のために何を入れるか」の層）。"
-            "[`skillsets/`](https://github.com/tradermonty/claude-trading-skills/tree/main/skillsets) "
-            "以下の manifest が正本で、本ページはそこから自動生成されます。\n\n"
-            "**翻訳方針:** 本ページは見出しラベルのみ日本語化しています。"
-            "manifest 本文（`when_to_use` / `when_not_to_use` 等）は"
-            "英語正本をそのまま表示します。本文の日本語化は将来の対応予定です（manifest 側に "
-            "`*_ja` フィールドを追加するか、別のローカライズ層を設ける方向で検討中）。"
-        ),
-        "auto_generated_note": (
-            "このページは `scripts/generate_skillset_docs.py` によって自動生成されます。"
-            "手動編集しないでください。"
-        ),
-        "summary_table_title": "スキルセット一覧",
-        "col_skillset": "スキルセット",
-        "col_timeframe": "タイムフレーム",
-        "col_api": "API プロファイル",
-        "col_difficulty": "難易度",
-        "col_related_workflows": "関連ワークフロー",
-        "when_to_use": "使用するとき",
-        "when_not_to_use": "使用してはいけないとき",
-        "target_users": "対象ユーザー",
-        "required_skills": "必須スキル",
-        "recommended_skills": "推奨スキル",
-        "optional_skills": "任意スキル",
-        "related_workflows": "関連ワークフロー",
-        "none": "（なし）",
-    },
 }
 
 
@@ -96,17 +64,7 @@ layout: default
 title: Skillsets
 parent: English
 nav_order: 5
-lang_peer: /ja/skillsets/
 permalink: /en/skillsets/
----
-""",
-    "ja": """---
-layout: default
-title: スキルセット
-parent: 日本語
-nav_order: 5
-lang_peer: /en/skillsets/
-permalink: /ja/skillsets/
 ---
 """,
 }
@@ -246,7 +204,7 @@ def default_output_path(project_root: Path, lang: str) -> Path:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Generate docs/{en,ja}/skillsets.md from skillsets/*.yaml manifests."
+        description="Generate docs/en/skillsets.md from skillsets/*.yaml manifests."
     )
     parser.add_argument(
         "--project-root",
@@ -256,15 +214,15 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument(
         "--lang",
-        choices=["en", "ja", "all"],
+        choices=["en", "all"],
         default="all",
-        help="Which language to generate (default: all)",
+        help="Which language to generate (default: all; only English is supported)",
     )
     parser.add_argument(
         "--output",
         type=Path,
         default=None,
-        help="Override output path (only valid with --lang en or --lang ja)",
+        help="Override output path (only valid with --lang en)",
     )
     parser.add_argument(
         "--check",
@@ -274,7 +232,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.output and args.lang == "all":
-        print("--output requires --lang en or --lang ja, not all", file=sys.stderr)
+        print("--output requires --lang en, not all", file=sys.stderr)
         return 2
 
     skillsets_dir = args.project_root / "skillsets"
@@ -287,7 +245,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"ERROR: no skillset manifests found under {skillsets_dir}", file=sys.stderr)
         return 1
 
-    langs = ["en", "ja"] if args.lang == "all" else [args.lang]
+    langs = ["en"] if args.lang == "all" else [args.lang]
     drift = False
 
     for lang in langs:

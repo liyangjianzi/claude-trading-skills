@@ -4,7 +4,6 @@ title: "Earnings Trade Analyzer"
 grand_parent: English
 parent: Skill Guides
 nav_order: 16
-lang_peer: /ja/skills/earnings-trade-analyzer/
 permalink: /en/skills/earnings-trade-analyzer/
 ---
 

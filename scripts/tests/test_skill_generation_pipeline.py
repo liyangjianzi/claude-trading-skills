@@ -1059,8 +1059,7 @@ def test_check_unexpected_changes_allows_pyproject_and_docs(pipeline_module, tmp
             return CompletedProcess(
                 cmd,
                 0,
-                "skills/my-skill/SKILL.md\npyproject.toml\n"
-                "docs/en/skills/my-skill.md\ndocs/ja/skills/my-skill.md\n",
+                "skills/my-skill/SKILL.md\npyproject.toml\ndocs/en/skills/my-skill.md\n",
                 "",
             )
         if "ls-files" in cmd_str:

@@ -4,7 +4,6 @@ title: "FTD Detector"
 grand_parent: English
 parent: Skill Guides
 nav_order: 24
-lang_peer: /ja/skills/ftd-detector/
 permalink: /en/skills/ftd-detector/
 ---
 

@@ -4,7 +4,6 @@ title: CANSLIM Screener
 grand_parent: English
 parent: Skill Guides
 nav_order: 2
-lang_peer: /ja/skills/canslim-screener/
 permalink: /en/skills/canslim-screener/
 ---
 

@@ -3,7 +3,6 @@ layout: default
 title: Getting Started
 parent: English
 nav_order: 1
-lang_peer: /ja/getting-started/
 permalink: /en/getting-started/
 ---
 

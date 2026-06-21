@@ -4,7 +4,6 @@ title: "Market Environment Analysis"
 grand_parent: English
 parent: Skill Guides
 nav_order: 30
-lang_peer: /ja/skills/market-environment-analysis/
 permalink: /en/skills/market-environment-analysis/
 ---
 

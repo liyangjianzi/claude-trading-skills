@@ -4,7 +4,6 @@ title: IBD Distribution Day Monitor
 grand_parent: English
 parent: Skill Guides
 nav_order: 11
-lang_peer: /ja/skills/ibd-distribution-day-monitor/
 permalink: /en/skills/ibd-distribution-day-monitor/
 ---
 

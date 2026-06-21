@@ -192,18 +192,6 @@ def test_render_includes_final_outputs(workflows_dir: Path) -> None:
     assert "Trade-side decisions" in page
 
 
-def test_render_japanese_uses_japanese_labels(workflows_dir: Path) -> None:
-    make_workflow(workflows_dir, id="ja-test")
-    workflows = load_workflows(workflows_dir)
-    page = render_page(workflows, "ja")
-    # Page title and frontmatter
-    assert "title: ワークフロー" in page
-    # Localized section headings
-    assert "実行タイミング" in page
-    assert "必須スキル" in page
-    assert "ステップ 1" in page
-
-
 def test_render_omits_prerequisite_section_when_absent(workflows_dir: Path) -> None:
     """Workflows without prerequisite_workflows should not show that heading."""
     make_workflow(workflows_dir, id="no-prereq")
