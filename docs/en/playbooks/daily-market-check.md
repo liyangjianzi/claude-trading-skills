@@ -92,8 +92,10 @@ To get a `NEW_ENTRY_ALLOWED` with higher confidence, add the missing critical
 signals before step 3:
 
 - **`top_risk`** — run `market-top-detector` (`--with-top-risk`). Requires `FMP_API_KEY`.
-- **`regime`** — run `macro-regime-detector` (keyless; cross-asset ratios via
-  yfinance) and pass its JSON to `exposure-coach --regime <file>`.
+- **`regime`** — run `macro-regime-detector` and pass its JSON to
+  `exposure-coach --regime <file>`. Requires `FMP_API_KEY` (cross-asset ratios
+  via FMP; it has a per-symbol yfinance fallback, but that does *not* remove the
+  key requirement).
 
 ## Daily automation (optional)
 
